@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAI TRỌNG DOANH</title>
+</head>
+<body>
+    <script>
+        let student="Qúy,Nam,Lan,Hùng,Nam";
+        let students=[];
+        
+        let s=student.split(",");
+        students=students.concat(s);
+
+        students=students.reverse();//có làm thay đổi mảng gốc
+        alert(`mảng đảo ngược ${students}`);
+
+        let search="Lan"
+        let count=students.indexOf(search);
+        if(count!==-1){
+            alert(`Tên Lan tồn tại trong mảng`);
+        } else{
+            alert(`Tên Lan không tồn tại trong mảng`);
+        }
+        let searchNam="Nam";
+
+        for (let i=0;i<students.length;i++){
+            if(searchNam===students[i]){
+                alert(`Tìm thấy Nam ở vị trí index là ${i}`);
+                break;
+            }
+          
+        }
+          
+        alert(`Bài 2`);
+
+        let price=[100,200,300.400];
+
+        for (let element of price) {
+            console.log(`${element}`);
+        }
+
+        for (let key in price) {
+            console.log(`${key}`);
+        }
+        let sum=0;
+        for (let i = 0; i < price.length; i++) {
+            if(i%2===0)
+            sum+=price[i];
+            console.log(`${sum}`);
+            
+            } 
+</script>
+</body>
+</html>
