@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let orders =["Đơn hàng A","Đơn hàng B","Đơn hàng C","Đơn hàng D","Đơn hàng E"];
+        let revenues =[1500,2800,1200,-500,3200];
+
+        let check=revenues.some(element=> element<0);
+        console.log(`Tồn tại doanh thu âm: ${check? "True": "False"}`);
+
+        let check2=revenues.every(element=>element>=500);
+        console.log(`Tất cả trên 500: ${check2? "True": "False"}`);
+
+        let netProfits= revenues.map(element=> element*0.9);
+        console.log(`${netProfits}`);
+        
+    </script>
+</body>
+</html>
