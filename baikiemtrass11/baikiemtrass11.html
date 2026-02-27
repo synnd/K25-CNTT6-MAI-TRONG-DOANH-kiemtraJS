@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let students = [
+            { id: 1, name: "Nguyen Văn A", score: 8.5, gender: "Nam" },
+            { id: 2, name: "Trân Thị B", score: 4.2, gender: "Nữ" },
+            { id: 3, name: "Lê Văn C", score: 9.0, gender: "Nam" },
+            { id: 4, name: "Phạm Thị D", score: 5.5, gender: "Nữ" },
+            { id: 5, name: "Hoàng Văn E", score: 3.8, gender: "Nam" }
+
+    ];
+        function studentUp8(){
+            let playerUp8 = students.filter((ele)=>ele.score>=8);
+            console.log("Sinh viên có điểm lớn hơn 8");
+            
+            console.log(playerUp8);
+            
+        }
+        function checkStudentUnderScores4(params) {
+            let check=students.some((ele)=>ele.score<4)?"Có sinh viên yếu":"Không có sinh viên yếu";
+            console.log(check);
+            
+        }
+
+        function studentLabels() {
+            let studentLabels=students.map((ele)=>
+            console.log(`Tên : ${ele.name} - Điểm : ${ele.score}`));           
+                       
+        }
+
+        studentUp8();
+        checkStudentUnderScores4();
+        studentLabels();
+    </script>
+</body>
+</html>
