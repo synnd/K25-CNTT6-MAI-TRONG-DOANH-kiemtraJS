@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let students = [
+{ id: 1, name: "Nguyen Văn A", score: 8.5, gender: "Nam" },
+{ id: 2, name: "Tran Thi B", score: 4.2, gender: "Nữ" },
+{ id: 3, name: "Lê Văn C", score: 9.0, gender: "Nam" },
+{ id: 4, name: "Phạm Thị D", score: 5.5, gender: "Nữ" },
+{ id: 5, name: "Hoang Văn E", score: 3.8, gender: "Nam" }
+    ];
+
+        function fileterAndSort() {
+            let girlStudent=students.filter(ele=>ele.gender.toLowerCase()==="nữ");
+            console.log(girlStudent);
+            let sortStudent=girlStudent.sort((a,b)=>b.score-a.score);
+            console.log(sortStudent); 
+        }
+        function listStudent() {
+            let listStudent = students.filter(ele=>ele.score>5);
+            console.log("Danh sách học sinh qua môn",listStudent);
+        }
+
+        function boyStudent(params) {
+            let boyStudent =students.filter(ele=>ele.gender.toLowerCase()==="nam")
+            console.log(boyStudent);            
+            let aveScore=boyStudent.reduce((acc,cur)=>(acc+=cur.score)/boyStudent.length,0);
+            console.log(" Diểm trung bình của sinh viên nam: ",aveScore.toFixed(2));
+            
+        }
+        fileterAndSort();
+        listStudent();
+        boyStudent();
+        
+    </script>
+</body>
+</html>
