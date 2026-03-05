@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <h1>ĐĂNG NHẬP</h1>
+    <form action="" id="form">
+        <label for="" >Email</label>
+        <input type="email" class="email" id="email" value="">
+        <br><br>
+        <label for="">Mật khẩu</label>
+        <input type="password" class="password" id="password" value="">
+        <br><br>
+        <input type="submit"></input>
+    </form>
+
+    <script>
+        let email =document.getElementById("email");
+        let password=document.getElementById("password");
+        let button=document.getElementsByTagName("button");
+        let user =[];
+
+        let form=document.getElementById("form");
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            let email=form.email.value;
+            let  password=form.password.value;
+            form.submit();
+            let u={
+                email:email,
+                password:password,
+            }
+            user.push(u);
+            console.log(user);
+        })
+
+        console.log(user);
+        
+    </script>
+</body>
+</html>
