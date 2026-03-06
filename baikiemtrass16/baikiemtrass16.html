@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    
+    <style>
+        * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 400px;
+  padding: 32px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #2563eb;
+}
+
+button {
+  padding: 9px 18px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+ul li {
+  padding: 7px 0;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 Todo List</h1>
+
+      <div class="input-row">
+        <input type="text" id="taskInput" placeholder="Nhập công việc..." />
+        <button id="button">Thêm</button>
+      </div>
+
+      <ul id="taskList">
+        <!-- <li>Quét nhà</li>
+        <li>Giặt quần áo</li> -->
+      </ul>
+    </div>
+
+    <script>
+        const toDolist=[
+            {id:1 , name: "Quét nhà"}, 
+            {id: 2, name: "Giặt quần áo"}
+        ];
+        let nextId=3;
+        let content=document.getElementById("taskList");
+        let inputToDo=document.getElementById("taskInput");
+        let button=document.getElementById("button");
+
+        button.addEventListener("click",(ele)=>{
+            addTask();
+        })
+        function renderList(task) {
+            let li =document.createElement("li");
+            li.classList.add("item");
+            li.innerHTML=`<li>${task.name}</li>`
+            content.appendChild(li);
+        }
+        toDolist.forEach(ele=>renderList(ele))
+
+        function addTask(task) {
+          let inputValue = inputToDo.value;
+          if (inputValue==="") {
+            return alert("Hãy nhập công việc mới!");
+          }
+
+            let newTask={
+                id: nextId++,
+                name:inputValue,
+            };
+            toDolist.push(newTask);
+            inputToDo.value="";
+            inputToDo.focus();
+            renderList(newTask);
+        }
+        
+    </script>
+  </body>
+
+</html>
